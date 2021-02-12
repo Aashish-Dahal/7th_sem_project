@@ -90,6 +90,7 @@ Widget _TextDetailSection({String name}) {
                         icon: Icon(
                           Icons.remove,
                           size: 15,
+                          color: Colors.white,
                         ),
                         onPressed: () {}),
                     decoration: BoxDecoration(
@@ -104,6 +105,7 @@ Widget _TextDetailSection({String name}) {
                         icon: Icon(
                           Icons.add,
                           size: 15,
+                          color: Colors.white,
                         ),
                         onPressed: () {}),
                     decoration: BoxDecoration(
@@ -185,14 +187,18 @@ Widget _TextDetailSection({String name}) {
               width: 150,
               margin: EdgeInsets.only(top: 15),
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Colors.blue[500],
                   borderRadius: BorderRadius.circular(10.0),
                   border: Border.all(
                       color: Colors.black26, style: BorderStyle.solid),
                   boxShadow: [
                     BoxShadow(color: Colors.black26, offset: Offset(0.0, 1.0)),
                   ]),
-              child: Center(child: Text('CONFIRM ORDER')),
+              child: Center(
+                  child: Text(
+                'CONFIRM ORDER',
+                style: TextStyle(color: Colors.white),
+              )),
             ),
           )
         ],
