@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/screens/grid_list/grid_list.dart';
 import 'package:masu_bazar/screens/widgets/home_page.dart';
-import 'screens/introduction_page/intro_screen.dart';
 
 void main() {
   runApp(MyApp());

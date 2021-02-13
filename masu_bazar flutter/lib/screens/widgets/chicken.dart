@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:masu_bazar/screens/widgets/chickenItemModel/chickenModel.dart';
-import 'package:masu_bazar/screens/widgets/productDetail.dart';
+import 'package:masu_bazar/screens/widgets/chickenItemModel/meatItemModel.dart';
+import 'package:masu_bazar/screens/widgets/productGrid.dart';
 
 class ChickenList extends StatelessWidget {
-  final List<ChickenModel> _chickenItem = ChickenModel.getChickenItems;
+  final List<MeatItemModel> _chickenItem = MeatItemModel.getChickenItems;
 
   @override
   Widget build(BuildContext context) {
@@ -34,46 +34,8 @@ class ChickenList extends StatelessWidget {
             ),
           ],
         ),
-        body: GridView.count(
-          crossAxisCount: 2,
-          children: _chickenItem
-              .map((item) => InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (builder) => ProductDetails(
-                                    image: item.image,
-                                    productName: item.name,
-                                  )));
-                    },
-                    child: Container(
-                        decoration: BoxDecoration(boxShadow: [
-                          BoxShadow(
-                              color: Colors.white38, offset: Offset(0.0, 20.0))
-                        ]),
-                        child: Card(
-                          elevation: 10.0,
-                          child: Column(
-                            children: <Widget>[
-                              Image(
-                                image: AssetImage(item.image),
-                                height: 140,
-                                width: 200,
-                                fit: BoxFit.fill,
-                              ),
-                              SizedBox(
-                                height: 5.0,
-                              ),
-                              Text(
-                                item.name,
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ],
-                          ),
-                        )),
-                  ))
-              .toList(),
+        body: ProductGrid(
+          pList: _chickenItem,
         ));
   }
 }

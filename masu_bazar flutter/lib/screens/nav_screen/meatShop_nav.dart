@@ -2,7 +2,6 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/screens/grid_list/grid_list.dart';
 
-
 class MeatShopButton extends StatelessWidget {
   const MeatShopButton({
     Key key,
@@ -12,41 +11,40 @@ class MeatShopButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       //  mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: <Widget>[
-    SafeArea(
-      child: Card(
-        borderOnForeground: true,
-        elevation: 8.0,
-        child: Container(
-       height: MediaQuery.of(context).size.height/2.8,
-       child: Carousel(
-      boxFit: BoxFit.fill,
-      images:[
-        AssetImage('assets/meat_shop_images/shop_carousel/shop1.jpg'),
-        AssetImage('assets/meat_shop_images/shop_carousel/butcher1.jpg'),
-        AssetImage('assets/meat_shop_images/shop_carousel/shop2.jpg'),
-        AssetImage('assets/meat_shop_images/shop_carousel/desktop.jpg'),
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: <Widget>[
+        SafeArea(
+          child: Card(
+            borderOnForeground: true,
+            elevation: 8.0,
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.3,
+              child: Carousel(
+                boxFit: BoxFit.fill,
+                images: [
+                  AssetImage('assets/meat_shop_images/shop_carousel/shop1.jpg'),
+                  AssetImage(
+                      'assets/meat_shop_images/shop_carousel/butcher1.jpg'),
+                  AssetImage('assets/meat_shop_images/shop_carousel/shop2.jpg'),
+                  AssetImage(
+                      'assets/meat_shop_images/shop_carousel/desktop.jpg'),
+                ],
+                dotBgColor: Colors.transparent,
+                autoplay: true,
+                animationDuration: Duration(milliseconds: 1000),
+                dotSize: 5.0,
+                indicatorBgPadding: 2.0,
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 5.0),
+            child: MeatCatList(),
+          ),
+        ),
       ],
-      dotBgColor: Colors.transparent,
-      autoplay: true,
-      animationDuration: Duration(milliseconds: 1000) ,
-      dotSize: 5.0,
-      indicatorBgPadding: 2.0,
-         ),
-         ),
-      ),
-    ),
-    
-       Expanded(
-         child: Container(
-           padding: EdgeInsets.symmetric(vertical: 5.0),
-
-         child: MeatCatList(),
-         ),
-       ),
-     
-      ],
-      );
+    );
   }
 }
