@@ -29,7 +29,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -50,6 +49,9 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     headerSection(),
                     textSection(),
+                    SizedBox(
+                      height: 15,
+                    )
                   ],
                 )
         ],

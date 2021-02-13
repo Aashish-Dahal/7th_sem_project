@@ -47,35 +47,35 @@ class AnimalInfo {
 
   static List<AnimalInfo> animalMeatInfo = [
     AnimalInfo(
-        image: "assets/meat_shop_images/deal.jpg",
+        image: "assets/meat_shop_images/deal.png",
         name: "Deal of the day",
         titleName: "Deal of the day"),
     AnimalInfo(
-        image: "assets/meat_shop_images/chicken.jpg",
+        image: "assets/meat_shop_images/chicken.png",
         name: "Chicken",
         titleName: "Chicken Items"),
     AnimalInfo(
-        image: "assets/meat_shop_images/mutton.jpg",
+        image: "assets/meat_shop_images/mutton.png",
         name: "Mutton",
         titleName: "Mutton Items"),
     AnimalInfo(
-        image: "assets/meat_shop_images/fish.jpg",
+        image: "assets/meat_shop_images/fish.png",
         name: "Seafood",
         titleName: "Seafood Items"),
     AnimalInfo(
-        image: "assets/meat_shop_images/pork.jpg",
+        image: "assets/meat_shop_images/pork.png",
         name: "Pork",
         titleName: "Pork Items"),
     AnimalInfo(
-        image: "assets/meat_shop_images/buff.jpg",
+        image: "assets/meat_shop_images/buff.png",
         name: "Buff",
         titleName: "Buff Items"),
     AnimalInfo(
-        image: "assets/meat_shop_images/local.jpg",
+        image: "assets/meat_shop_images/local.png",
         name: "Local",
         titleName: "Local Items"),
     AnimalInfo(
-        image: "assets/meat_shop_images/chicken.jpg",
+        image: "assets/meat_shop_images/chicken.png",
         name: "Anya",
         titleName: "Anya Items"),
   ];

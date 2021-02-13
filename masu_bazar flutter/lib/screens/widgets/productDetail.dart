@@ -16,8 +16,14 @@ class _PrductDetailsState extends State<ProductDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
         backgroundColor: Colors.orange,
-        title: Text('Product Details'),
+        title: Text(
+          'Product Details',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: ListView(
         children: [
