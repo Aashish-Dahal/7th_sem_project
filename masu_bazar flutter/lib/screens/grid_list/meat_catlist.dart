@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:masu_bazar/screens/widgets/chicken.dart';
-import 'package:masu_bazar/screens/widgets/deal_day.dart';
-
-import '../widgets/buff.dart';
-import '../widgets/mutton.dart';
-import '../widgets/pork.dart';
-import '../widgets/seafood.dart';
+import 'package:masu_bazar/AnimalInfo/animalInfo.dart';
 
 class MeatCatList extends StatefulWidget {
   @override
@@ -14,54 +8,14 @@ class MeatCatList extends StatefulWidget {
 
 class _MeatCatListState extends State<MeatCatList> {
   int _currentChild = 0;
-  List<Widget> tabs = [
-    DealList(),
-    ChickenList(),
-    MuttonList(),
-    FishList(),
-    PorkList(),
-    BuffList(),
-  ];
-  var product_list = [
-    {
-      "image": "assets/meat_shop_images/deal.jpg",
-      "text": "Deal of the day",
-    },
-    {
-      "image": "assets/meat_shop_images/chicken.jpg",
-      "text": "Chicken",
-    },
-    {
-      "image": "assets/meat_shop_images/mutton.jpg",
-      "text": "Mutton",
-    },
-    {
-      "image": "assets/meat_shop_images/fish.jpg",
-      "text": "Seafood",
-    },
-    {
-      "image": "assets/meat_shop_images/pork.jpg",
-      "text": "Pork",
-    },
-    {
-      "image": "assets/meat_shop_images/buff.jpg",
-      "text": "Buff",
-    },
-    {
-      "image": "assets/meat_shop_images/local.jpg",
-      "text": "Local",
-    },
-    {
-      "image": "assets/meat_shop_images/chicken.jpg",
-      "text": "Anya",
-    },
-  ];
+  List<Widget> meatTabListController = AnimalInfo.getMeatTabList;
+  List<AnimalInfo> getMeatList = AnimalInfo.animalMeatInfo;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GridView.builder(
-        itemCount: product_list.length,
+        itemCount: getMeatList.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 1.3),
         itemBuilder: (context, int index) {
@@ -70,15 +24,17 @@ class _MeatCatListState extends State<MeatCatList> {
               setState(() {
                 _currentChild = index;
                 if (_currentChild == index) {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => tabs[index]));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => meatTabListController[index]));
                 }
               });
             },
             child: MeatCategoryNameList(
-              cat_image: product_list[index]["image"],
-              cat_title: product_list[index]["text"],
-              cat_text_title: product_list[index]["title_text"],
+              cat_image: getMeatList[index].image,
+              cat_title: getMeatList[index].name,
+              cat_text_title: getMeatList[index].titleName,
             ),
           );
         },
@@ -115,7 +71,7 @@ class MeatCategoryNameList extends StatelessWidget {
                   border: Border.all(
                       color: Colors.black26, style: BorderStyle.solid),
                   boxShadow: [
-                    BoxShadow(color: Colors.black26, offset: Offset(0.0, 1.0)),
+                    BoxShadow(color: Colors.black26, offset: Offset(0.0, 0.0)),
                   ]),
               child: Padding(
                 padding: EdgeInsets.all(0.0),
@@ -145,7 +101,7 @@ class MeatCategoryNameList extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.transparent, offset: Offset(0.0, 1.0)),
+                      color: Colors.transparent, offset: Offset(0.0, 0.0)),
                 ]),
             child: Stack(
               alignment: Alignment.topCenter,
