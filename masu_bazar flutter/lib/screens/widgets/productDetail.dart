@@ -16,6 +16,7 @@ class _PrductDetailsState extends State<ProductDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange,
         title: Text('Product Details'),
       ),
       body: ListView(
@@ -94,7 +95,7 @@ Widget _TextDetailSection({String name}) {
                         ),
                         onPressed: () {}),
                     decoration: BoxDecoration(
-                      color: Colors.blueAccent,
+                      color: Colors.orange,
                       borderRadius: BorderRadius.circular(50),
                     )),
                 Text('0.0 kg'),
@@ -109,7 +110,7 @@ Widget _TextDetailSection({String name}) {
                         ),
                         onPressed: () {}),
                     decoration: BoxDecoration(
-                      color: Colors.blueAccent,
+                      color: Colors.orange,
                       borderRadius: BorderRadius.circular(50),
                     )),
               ],
@@ -187,7 +188,7 @@ Widget _TextDetailSection({String name}) {
               width: 150,
               margin: EdgeInsets.only(top: 15),
               decoration: BoxDecoration(
-                  color: Colors.blue[500],
+                  color: Colors.orange,
                   borderRadius: BorderRadius.circular(10.0),
                   border: Border.all(
                       color: Colors.black26, style: BorderStyle.solid),

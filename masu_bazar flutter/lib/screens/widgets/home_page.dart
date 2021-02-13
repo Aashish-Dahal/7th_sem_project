@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
   List<BottomNavItem> tabController = BottomNavItem.bottomNavBarItem;
   int _currentTab = 0;
   final tabs = [
@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: tabs[_currentTab],
       bottomNavigationBar: BottomNavigationBar(
+
         selectedFontSize: 10,
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentTab,
@@ -88,6 +89,7 @@ class _HomePageState extends State<HomePage> {
         //   //========Profile============//
         // ]
       ),
+
     );
   }
 }
