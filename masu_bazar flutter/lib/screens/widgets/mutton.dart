@@ -9,6 +9,7 @@ class MuttonList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: Colors.orange,
           elevation: 0.0,
           title: Text(
