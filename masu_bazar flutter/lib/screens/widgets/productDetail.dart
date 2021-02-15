@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/screens/widgets/cart.dart';
 
 class ProductDetails extends StatefulWidget {
   final String productName;
@@ -51,6 +52,7 @@ class _PrductDetailsState extends State<ProductDetails> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
                 _ImageDetailSection(image: widget.image),
                 // _TextDetailSection(
                 //   name: widget.productName,
@@ -235,7 +237,9 @@ class _PrductDetailsState extends State<ProductDetails> {
   }
 }
 
-Widget _ImageDetailSection({String image}) {
+Widget _ImageDetailSection({
+  String image,
+}) {
   // return Container(width: 172, child: Image.asset(image));
   return Expanded(
     child: Container(
@@ -247,6 +251,7 @@ Widget _ImageDetailSection({String image}) {
     ),
   );
 }
+
 
 double _priceIncrement({double price, quantity}) {
   price = quantity * price;
