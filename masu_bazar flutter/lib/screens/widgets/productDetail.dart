@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/screens/widgets/cart.dart';
 
 class ProductDetails extends StatefulWidget {
   final String productName;
@@ -16,8 +17,14 @@ class _PrductDetailsState extends State<ProductDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
         backgroundColor: Colors.orange,
-        title: Text('Product Details'),
+        title: Text(
+          'Product Details',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: ListView(
         children: [
@@ -33,8 +40,10 @@ class _PrductDetailsState extends State<ProductDetails> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                _ImageDetailSection(image: widget.image),
-                _TextDetailSection(name: widget.productName),
+                _ImageDetailSection(
+                  image: widget.image,
+                ),
+                _TextDetailSection(name: widget.productName, context: context),
               ],
             ),
           )
@@ -44,7 +53,9 @@ class _PrductDetailsState extends State<ProductDetails> {
   }
 }
 
-Widget _ImageDetailSection({String image}) {
+Widget _ImageDetailSection({
+  String image,
+}) {
   // return Container(width: 172, child: Image.asset(image));
   return Expanded(
     child: Container(
@@ -57,7 +68,7 @@ Widget _ImageDetailSection({String image}) {
   );
 }
 
-Widget _TextDetailSection({String name}) {
+Widget _TextDetailSection({String name, BuildContext context}) {
   return Expanded(
     child: Container(
       height: 200,
@@ -75,7 +86,6 @@ Widget _TextDetailSection({String name}) {
             margin: EdgeInsets.only(top: 5),
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black12),
-                // color: Colors.purple,
                 borderRadius: BorderRadius.circular(12.0)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -120,7 +130,6 @@ Widget _TextDetailSection({String name}) {
             margin: EdgeInsets.only(top: 5),
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black12),
-                // color: Colors.purple,
                 borderRadius: BorderRadius.circular(12.0)),
             child: Row(
               children: [
@@ -142,7 +151,6 @@ Widget _TextDetailSection({String name}) {
             margin: EdgeInsets.only(top: 5),
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black12),
-                // color: Colors.purple,
                 borderRadius: BorderRadius.circular(12.0)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -161,7 +169,6 @@ Widget _TextDetailSection({String name}) {
             margin: EdgeInsets.only(top: 5),
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black12),
-                // color: Colors.purple,
                 borderRadius: BorderRadius.circular(12.0)),
             child: Row(
               children: [
@@ -181,7 +188,16 @@ Widget _TextDetailSection({String name}) {
           ),
           InkWell(
             onTap: () {
-              print('hellele');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Cart(
+                          productName: name,
+                          quantity: 15,
+                        )),
+              );
+
+              //  Navigator.push(context, MaterialPageRoute(builder: (context) => Cart()),);
             },
             child: Container(
               height: 30,
@@ -197,7 +213,7 @@ Widget _TextDetailSection({String name}) {
                   ]),
               child: Center(
                   child: Text(
-                'CONFIRM ORDER',
+                'ADD CART',
                 style: TextStyle(color: Colors.white),
               )),
             ),
