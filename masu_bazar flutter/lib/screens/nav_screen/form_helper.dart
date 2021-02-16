@@ -41,13 +41,11 @@ class AddNavBarItemButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text("Add"),
         actions: [
           Search(),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Logout(),
-          ),
+          Padding(padding: EdgeInsets.all(8.0), child: null //Logout(),
+              ),
         ],
       ),
       body: SafeArea(

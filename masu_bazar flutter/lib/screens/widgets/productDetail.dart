@@ -52,12 +52,8 @@ class _PrductDetailsState extends State<ProductDetails> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _ImageDetailSection(image: widget.image),
-                // _TextDetailSection(
-                //   name: widget.productName,
-                // ),
                 Expanded(
                   child: Container(
-                    color: Colors.black,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -81,47 +77,55 @@ class _PrductDetailsState extends State<ProductDetails> {
                                 'Quantity:',
                                 style: TextStyle(fontSize: 16),
                               ),
+                              // Container(
+                              //     height: 30,
+                              //     width: 30,
+                              //     child: IconButton(
+                              //         icon: Icon(
+                              //           Icons.remove,
+                              //           size: 15,
+                              //           color: Colors.white,
+                              //         ),
+                              //         onPressed: () {
+                              //           setState(() {
+                              //             if (_quantity > 1) {
+                              //               _quantity -= 0.5;
+                              //             } else {
+                              //               //nothing
+                              //             }
+                              //           });
+                              //         }),
+                              //     decoration: BoxDecoration(
+                              //       color: Colors.orange,
+                              //       borderRadius: BorderRadius.circular(50),
+                              //     )),
                               Container(
-                                  height: 30,
                                   width: 30,
-                                  child: IconButton(
-                                      icon: Icon(
-                                        Icons.remove,
-                                        size: 15,
-                                        color: Colors.white,
-                                      ),
-                                      onPressed: () {
-                                        setState(() {
-                                          if (_quantity > 1) {
-                                            _quantity -= 0.5;
-                                          } else {
-                                            //nothing
-                                          }
-                                        });
-                                      }),
-                                  decoration: BoxDecoration(
-                                    color: Colors.orange,
-                                    borderRadius: BorderRadius.circular(50),
-                                  )),
-                              Text('$_quantity kg'),
-                              Container(
                                   height: 30,
-                                  width: 30,
-                                  child: IconButton(
-                                      icon: Icon(
-                                        Icons.add,
-                                        size: 15,
-                                        color: Colors.white,
-                                      ),
-                                      onPressed: () {
-                                        setState(() {
-                                          _quantity += 0.5;
-                                        });
-                                      }),
-                                  decoration: BoxDecoration(
-                                    color: Colors.orange,
-                                    borderRadius: BorderRadius.circular(50),
+                                  child: TextFormField(
+                                    textAlignVertical: TextAlignVertical.bottom,
+                                    textAlign: TextAlign.center,
+                                    cursorColor: Colors.black,
                                   )),
+                              // Text('$_quantity kg'),
+                              // Container(
+                              //     height: 30,
+                              //     width: 30,
+                              //     child: IconButton(
+                              //         icon: Icon(
+                              //           Icons.add,
+                              //           size: 15,
+                              //           color: Colors.white,
+                              //         ),
+                              //         onPressed: () {
+                              //           setState(() {
+                              //             _quantity += 0.5;
+                              //           });
+                              //         }),
+                              //     decoration: BoxDecoration(
+                              //       color: Colors.orange,
+                              //       borderRadius: BorderRadius.circular(50),
+                              //     )),
                             ],
                           ),
                         ),
@@ -221,7 +225,7 @@ class _PrductDetailsState extends State<ProductDetails> {
                               style: TextStyle(color: Colors.white),
                             )),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),

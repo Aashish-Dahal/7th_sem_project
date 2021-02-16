@@ -1,92 +1,77 @@
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/screens/grid_list/TabModel/tabItem.dart';
 import 'package:masu_bazar/screens/login/login.dart';
 import 'package:masu_bazar/screens/widgets/appbar.dart';
-import 'grid_list.dart';
-class AnyaTabList extends StatelessWidget {
-  List<Choice> choices=<Choice>[
-  Choice(title: 'सुँगुर/बदेल',image: Image(image: AssetImage('assets/images/boar.png'),height: 30,width: 30,)),
-  Choice(title: 'खरायो',image: Image(image: AssetImage('assets/images/rabbit.png'),height: 25,width: 30,)),
-  Choice(title: 'कुकुर',image: Image(image: AssetImage('assets/images/dog.png'),height: 30,width: 30,)),
-  Choice(title: 'घोडा',image: Image(image: AssetImage('assets/images/horse.png'),height: 30,width: 30,)),
-  Choice(title: 'अन्य',image: Image(image: AssetImage('assets/images/anya.png'),height: 30,width: 30,)),
-  
-];
-  final title;
-  List <Widget> containers=[
 
-   Center(
-     child: Text('सुँगुर/बदेल'),
-   ),
-     Center(
-     child: Text('खरायो'),
-   ),
-   Center(
-     child: Text('कुकुर'),
-   ),
-      Center(
-     child: Text('घोडा'),
-   ),
-  
-      Center(
-     child: Text('अन्य'),
-   ),
+class AnyaTabList extends StatelessWidget {
+  List<TabModel> tabItem = TabModel.othersTabItemList;
+  final title;
+  List<Widget> containers = [
+    Center(
+      child: Text('सुँगुर/बदेल'),
+    ),
+    Center(
+      child: Text('खरायो'),
+    ),
+    Center(
+      child: Text('कुकुर'),
+    ),
+    Center(
+      child: Text('घोडा'),
+    ),
+    Center(
+      child: Text('अन्य'),
+    ),
   ];
 
-   AnyaTabList({Key key, this.title}) : super(key: key);
+  AnyaTabList({Key key, this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-          
-          appBar:AppBar(
-        title: Text(title),
+    return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text(
+          title,
+          style: TextStyle(color: Colors.white),
+        ),
         actions: [
           Search(),
-          Padding(
-         padding: EdgeInsets.all(8.0),
-         child: Logout(),
-       ),
-      ],),
-         body: DefaultTabController(
-           length: choices.length,
-           child: Column(
-             children: <Widget>[
-               Container(
-                  margin: EdgeInsets.only(left: 0.5,right: 0.5),
-                 constraints: BoxConstraints.expand(height:63),
-                 decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(1.0),
-                border:Border.all(color: Colors.black54,style: BorderStyle.solid),
-                 boxShadow: [
-                  BoxShadow(
-                     color: Colors.black26,
-                     offset: Offset(1.0,1.0)
-                  ),
-                 ]
-                ),
-                 child: TabBar(
+          Padding(padding: EdgeInsets.all(8.0), child: null //Logout(),
+              ),
+        ],
+      ),
+      body: DefaultTabController(
+        length: tabItem.length,
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(left: 0.5, right: 0.5),
+              constraints: BoxConstraints.expand(height: 63),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(1.0),
+                border: Border.all(
+                    color: Colors.orangeAccent, style: BorderStyle.solid),
+              ),
+              child: TabBar(
                 isScrollable: true,
-                indicatorColor: Colors.black,
+                indicatorColor: Colors.orange[600],
                 indicatorSize: TabBarIndicatorSize.label,
-                tabs:choices.map<Widget>((Choice choice){
-                return Container(
-                 margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  child: Tab(
-               text: choice.title,
-               icon: choice.image,
+                tabs: tabItem.map((eachTab) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: 5.0),
+                    child: Tab(
+                      text: eachTab.title,
+                      icon: eachTab.image,
                     ),
-                );
-              }
-              ).toList(),
-              
+                  );
+                }).toList(),
+              ),
             ),
-               ),
-               Expanded(
-                 child: TabBarView(children: containers)
-               )
-             ],
-           ),
-         ),
-          );
-       
+            Expanded(child: TabBarView(children: containers))
+          ],
+        ),
+      ),
+    );
   }
 }
-

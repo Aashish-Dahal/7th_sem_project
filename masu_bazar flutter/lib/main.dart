@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/screens/grid_list/goat_item.dart';
 import 'package:masu_bazar/screens/widgets/home_page.dart';
 
 void main() {
