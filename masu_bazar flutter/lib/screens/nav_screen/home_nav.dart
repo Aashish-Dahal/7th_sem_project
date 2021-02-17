@@ -14,6 +14,48 @@ class HomeNavBarItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+
+            Container(
+              margin: EdgeInsets.only(top: 2, left: 11,right: 11),
+              decoration: BoxDecoration(
+                  color: Colors.grey[350],
+                  borderRadius: BorderRadius.circular(8)),
+              height: 35,
+              child: Row(
+                children: [
+                  SizedBox(width: 5),
+                  Icon(Icons.search, color: Colors.white),
+                  SizedBox(width: 5),
+                  Text(
+                    'Search for animals',
+                    style: TextStyle(color: white),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left:8.0,right: 8),
+              child: Card(
+                
+                borderOnForeground: true,
+                elevation: 4.0,
+                child: Container(
+                  
+                  color: Colors.transparent,
+                  
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  child: Carousel(
+                    boxFit: BoxFit.fill,
+                    images: images
+                        .map((eachItem) => AssetImage(eachItem.images))
+                        .toList(),
+                    dotBgColor: Colors.transparent,
+                    autoplay: true,
+                    animationDuration: Duration(milliseconds: 1000),
+                    dotSize: 5.0,
+                    indicatorBgPadding: 2.0,
+                  ),
+
             Card(
               borderOnForeground: true,
               elevation: 4.0,
