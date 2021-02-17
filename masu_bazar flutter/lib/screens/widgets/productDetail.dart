@@ -204,7 +204,7 @@ class _PrductDetailsState extends State<ProductDetails> {
                         ),
                         InkWell(
                           onTap: () {
-                            print('hellele');
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>Cart()),);
                           },
                           child: Container(
                             height: 30,

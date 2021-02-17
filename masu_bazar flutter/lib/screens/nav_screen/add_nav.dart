@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:masu_bazar/model/model.dart';
 import 'package:masu_bazar/screens/show_dialog/dialog.dart';
+import 'package:masu_bazar/screens/widgets/colors.dart';
 
 class FormFields extends StatefulWidget {
   final String id;
@@ -139,7 +140,7 @@ class _FormFieldsState extends State<FormFields> {
       image: _image != null
           ? FileImage(File(_image.path))
           : AssetImage(
-              'assets/images/noimage.png',
+              'assets/images/upload.png',
             ),
       width: 300,
       height: 200,
@@ -148,6 +149,7 @@ class _FormFieldsState extends State<FormFields> {
 
   Widget PickImage() {
     return Container(
+      
       height: 100,
       width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.symmetric(
@@ -155,6 +157,8 @@ class _FormFieldsState extends State<FormFields> {
         vertical: 20,
       ),
       child: Column(
+        
+        
         children: [
           Text(
             'Choose Image',
@@ -169,6 +173,7 @@ class _FormFieldsState extends State<FormFields> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               FlatButton.icon(
+               
                 onPressed: () {
                   takePhoto(ImageSource.camera);
                 },
@@ -245,9 +250,9 @@ class _FormFieldsState extends State<FormFields> {
                       Icons.description,
                       //  color: Colors.green,
                     ),
-                    labelText: "Short-Description",
-                    helperText: "Short-Description can't be empty",
-                    hintText: "Short-Description"),
+                    labelText: "Short Description",
+                    helperText: "Short Description can't be empty",
+                    hintText: "Short Description"),
                 validator: (String value) {
                   if (value.isEmpty) {
                     return 'Short_Description is Required';
@@ -263,7 +268,7 @@ class _FormFieldsState extends State<FormFields> {
               ),
               Center(
                 child: RaisedButton(
-                    color: Color(0xFFEB0EC29E),
+                    color:orange,
                     child: Text(
                       'CHOOSE IMAGE',
                       style: TextStyle(color: Colors.white),
@@ -354,9 +359,9 @@ class _FormFieldsState extends State<FormFields> {
                       image: AssetImage('assets/images/tooth.png'),
                       color: Colors.black54,
                     ),
-                    labelText: "Satiyako-Daat",
-                    helperText: "Satiyako-Daatcan't be empty",
-                    hintText: "Satiyako-Daat"),
+                    labelText: "Satiyako Daat",
+                    helperText: "Satiyako Daat can't be empty",
+                    hintText: "Satiyako Daat"),
                 validator: (String value) {
                   if (value.isEmpty) {
                     return 'Satiyaako Daat is Required';
@@ -420,9 +425,9 @@ class _FormFieldsState extends State<FormFields> {
                       Icons.phone,
                       //   color: Colors.green,
                     ),
-                    labelText: "Primary-Number",
-                    helperText: "Primary-Number can't be empty",
-                    hintText: "Primary-Number"),
+                    labelText: "Primary Number",
+                    helperText: "Primary Number can't be empty",
+                    hintText: "Primary Number"),
                 validator: (String value) {
                   if (value.isEmpty) {
                     return 'Primary Number is Required';
@@ -443,9 +448,9 @@ class _FormFieldsState extends State<FormFields> {
                       Icons.phone_android,
                       //    color: Colors.green,
                     ),
-                    labelText: "Secondary-Number",
-                    helperText: "Secondary-Number is optional",
-                    hintText: "Secondary-Number"),
+                    labelText: "Secondary Number",
+                    helperText: "Secondary Number is optional",
+                    hintText: "Secondary Number"),
               ),
               SizedBox(
                 height: 10,
@@ -475,7 +480,7 @@ class _FormFieldsState extends State<FormFields> {
               widget.id == null
                   ? Center(
                       child: RaisedButton(
-                        color: Color(0xFFEB0EC29E),
+                        color: orange,
                         child: Text(
                           "Submit",
                           style: TextStyle(color: Colors.white),

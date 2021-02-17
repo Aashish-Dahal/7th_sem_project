@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/screens/login/login.dart';
 import 'package:masu_bazar/screens/widgets/appbar.dart';
+import 'package:masu_bazar/screens/widgets/colors.dart';
 
 class Details extends StatefulWidget {
   final title_details;
@@ -43,7 +44,8 @@ class _DetailsState extends State<Details> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title_details),
+        iconTheme: IconThemeData(color: white),
+        title: Text(widget.title_details,style: TextStyle(color:white),),
         actions: [
           Search(),
           Padding(padding: EdgeInsets.all(8.0), child: null //Logout(),
@@ -53,10 +55,11 @@ class _DetailsState extends State<Details> {
       body: ListView(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(left: 8.0, right: 8.0),
+            padding: EdgeInsets.only(left: 3.0, right: 3.0),
             child: Card(
+              
                 borderOnForeground: true,
-                elevation: 5.0,
+                // elevation: 3.0,
                 clipBehavior: Clip.antiAlias,
                 child: Image(
                   image: AssetImage(widget.image_details),
@@ -67,12 +70,13 @@ class _DetailsState extends State<Details> {
                 )),
           ),
           Row(
+            
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 padding: EdgeInsets.only(top: 13.0, left: 20.0),
                 height: 50,
-                width: 160.5,
+                width: 188,
                 child: Text(
                   'Weight=' + widget.weight_details.toString() + " kg",
                   style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
@@ -82,12 +86,12 @@ class _DetailsState extends State<Details> {
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(10.0),
                         bottomLeft: Radius.circular(10.0)),
-                    border: Border.all(color: Colors.black26),
-                    color: Colors.white,
+                    // border: Border.all(color: Colors.black26),
+                    color: white,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black26,
-                        offset: Offset(0.0, 2.0),
+                        offset: Offset(0.0, 0.0),
                       )
                     ]),
               ),
@@ -98,12 +102,12 @@ class _DetailsState extends State<Details> {
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(10.0),
                         bottomRight: Radius.circular(10.0)),
-                    border: Border.all(color: Colors.black26),
+                    // border: Border.all(color: Colors.black26),
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black26,
-                        offset: Offset(0.0, 2.0),
+                        offset: Offset(0.0, 0.0),
                       )
                     ]),
                 height: 50,
@@ -119,12 +123,12 @@ class _DetailsState extends State<Details> {
             margin: EdgeInsets.only(left: 5.0, right: 5.0, top: 5.0),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
-                border: Border.all(color: Colors.black26),
-                color: Colors.white,
+                // border: Border.all(color: Colors.black26),
+                color: white,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black26,
-                    offset: Offset(0.0, 1.0),
+                    offset: Offset(0.0, 0.0),
                   )
                 ]),
             width: MediaQuery.of(context).size.height,
@@ -141,7 +145,7 @@ class _DetailsState extends State<Details> {
                 ),
                 Divider(
                   color: Colors.black26,
-                  thickness: 2,
+                  thickness: 1,
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
@@ -158,12 +162,12 @@ class _DetailsState extends State<Details> {
             margin: EdgeInsets.only(left: 5.0, right: 5.0, top: 5.0),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
-                border: Border.all(color: Colors.black26),
-                color: Colors.white,
+                // border: Border.all(color: Colors.black26),
+                color: white,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black26,
-                    offset: Offset(0.0, 2.0),
+                    offset: Offset(0.0, 0.0),
                   )
                 ]),
             width: MediaQuery.of(context).size.height,
@@ -180,7 +184,7 @@ class _DetailsState extends State<Details> {
                 ),
                 Divider(
                   color: Colors.black26,
-                  thickness: 2.0,
+                  thickness: 1,
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/screens/login/login.dart';
 import 'package:masu_bazar/screens/widgets/appbar.dart';
+import 'package:masu_bazar/screens/widgets/colors.dart';
 import 'nav_screen.dart';
 
 class AddNavBarItemButton extends StatelessWidget {
@@ -41,7 +42,10 @@ class AddNavBarItemButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add"),
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Add",style: TextStyle(color: white),),
+        ),
         actions: [
           Search(),
           Padding(padding: EdgeInsets.all(8.0), child: null //Logout(),

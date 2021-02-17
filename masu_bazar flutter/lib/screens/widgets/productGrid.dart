@@ -28,7 +28,7 @@ class ProductGrid extends StatelessWidget {
                           color: Colors.white38, offset: Offset(0.0, 20.0))
                     ]),
                     child: Card(
-                      elevation: 10.0,
+                      elevation: 1.0,
                       child: Column(
                         children: <Widget>[
                           Image(

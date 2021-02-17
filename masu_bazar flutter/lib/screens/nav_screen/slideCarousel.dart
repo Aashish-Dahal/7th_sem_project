@@ -5,9 +5,12 @@ class SlideCarouselImage {
 
   SlideCarouselImage({this.images});
   static List<SlideCarouselImage> homeSliderImage = [
+     SlideCarouselImage(images: 'assets/images/ad1.jpg'),
+     SlideCarouselImage(images: 'assets/images/ad3.jpg'),
     SlideCarouselImage(images: 'assets/images/ad2.jpg'),
     SlideCarouselImage(images: 'assets/images/ad3.png'),
     SlideCarouselImage(images: 'assets/images/ad4.jpeg'),
+     
   ];
   static List<SlideCarouselImage> meatSliderImage = [
     SlideCarouselImage(

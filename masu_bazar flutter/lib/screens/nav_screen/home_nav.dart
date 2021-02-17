@@ -2,6 +2,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/screens/grid_list/grid_list.dart';
 import 'package:masu_bazar/screens/nav_screen/slideCarousel.dart';
+import 'package:masu_bazar/screens/widgets/colors.dart';
 
 class HomeNavBarItem extends StatelessWidget {
   List<SlideCarouselImage> images = SlideCarouselImage.homeSliderImage;
@@ -13,6 +14,13 @@ class HomeNavBarItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            Card(
+             
+              child: Padding(
+                padding: const EdgeInsets.only(left:18.0),
+                child: TextFormField(),
+              ),
+            ),
             Card(
               borderOnForeground: true,
               elevation: 4.0,
@@ -32,11 +40,17 @@ class HomeNavBarItem extends StatelessWidget {
                 ),
               ),
             ),
+
+            Padding(
+              padding: const EdgeInsets.only(left:12.0,right: 8),
+              child: Text("Categories",style: TextStyle(color:black,fontSize:20,fontWeight: FontWeight.bold),),
+            ),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(10),
+                  
                 ),
                 margin: EdgeInsets.only(left: 10, right: 10, top: 8),
                 child: DomAnimalList(),
@@ -47,14 +61,14 @@ class HomeNavBarItem extends StatelessWidget {
             )
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Theme.of(context).primaryColor,
-          child: Icon(
-            Icons.search,
-            color: Colors.white,
-          ),
-          onPressed: () {},
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   backgroundColor: Theme.of(context).primaryColor,
+        //   child: Icon(
+        //     Icons.search,
+        //     color: Colors.white,
+        //   ),
+        //   onPressed: () {},
+        // ),
       ),
     );
   }

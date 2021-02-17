@@ -20,8 +20,7 @@ class BottomNavItem {
         label: "Meat Shop"),
     BottomNavItem(
         icon: Icon(Icons.add_circle), color: Colors.blue, label: "Add"),
-    BottomNavItem(
-        icon: Icon(Icons.settings), color: Colors.yellow, label: "Setting"),
-    BottomNavItem(icon: Icon(Icons.person), label: "Profile"),
+    
+    BottomNavItem(icon: Icon(Icons.person), label: "Account"),
   ];
 }

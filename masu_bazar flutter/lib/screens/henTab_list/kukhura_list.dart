@@ -166,6 +166,7 @@ class _ListViewItemState extends State<ListViewItem> {
                   overflow: TextOverflow.ellipsis,
                   ),
                 Row(
+                  
                   children:<Widget>[
                     //weight
                     Text("Weight: "+widget.list_weight, style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12.0),),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/screens/grid_list/TabModel/tabItem.dart';
 import 'package:masu_bazar/screens/login/login.dart';
+import 'package:masu_bazar/screens/widgets/colors.dart';
 import 'grid_list.dart';
 import 'package:masu_bazar/screens/henTab_list/kukhura_list.dart';
 import 'package:masu_bazar/screens/widgets/appbar.dart';
@@ -35,10 +36,10 @@ class KukhuraTabList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: white),
         title: Text(
           title,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: white),
         ),
         actions: [
           Search(),

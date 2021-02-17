@@ -20,7 +20,7 @@ class _DomAnimalListState extends State<DomAnimalList> {
           crossAxisCount: 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
-          childAspectRatio: 3 / 2.1),
+          childAspectRatio: 3 / 2.17),
       itemBuilder: (context, int index) {
         return InkWell(
           onTap: () {
@@ -36,7 +36,7 @@ class _DomAnimalListState extends State<DomAnimalList> {
           },
           child: Container(
             decoration: BoxDecoration(
-                border: Border.all(color: Colors.black26),
+                // border: Border.all(color: Colors.black26),
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12)),
             child: Column(
@@ -44,7 +44,9 @@ class _DomAnimalListState extends State<DomAnimalList> {
               children: [
                 Container(
                   child: Image(
-                      height: 85,
+                      fit: BoxFit.fill,
+                      height: 90,
+                      width:161,
                       image: AssetImage(getAnimalsList[index].image)),
                 ),
                 Divider(

@@ -35,7 +35,7 @@ class _MeatCatListState extends State<MeatCatList> {
           },
           child: Container(
             decoration: BoxDecoration(
-                border: Border.all(color: Colors.black26),
+                // border: Border.all(color: Colors.black26),
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12)),
             child: Column(

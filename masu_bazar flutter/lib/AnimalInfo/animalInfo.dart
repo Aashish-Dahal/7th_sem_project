@@ -20,27 +20,27 @@ class AnimalInfo {
 
   static List<AnimalInfo> animalListInfo = [
     AnimalInfo(
-        image: "assets/category_list/boka.png",
+        image: "assets/category_list/khasi.png",
         name: "खसी/बाख्रो",
         titleName: "खसीको प्रजाति"),
     AnimalInfo(
-        image: "assets/category_list/mura.png",
+        image: "assets/category_list/buffalo.png",
         name: "गाई/भैंसी",
         titleName: "गाई/भैंसीको प्रजाति"),
     AnimalInfo(
-        image: "assets/category_list/chicken.png",
+        image: "assets/category_list/hen.png",
         name: "कुखुरा",
         titleName: "कुखुराको प्रजाति "),
     AnimalInfo(
-        image: "assets/category_list/suga.png",
+        image: "assets/category_list/birds.png",
         name: "चराहरु",
         titleName: "चराको प्रजाति"),
     AnimalInfo(
-        image: "assets/category_list/pboka.png",
+        image: "assets/category_list/boka.png",
         name: "भाकल/ पुजा",
         titleName: "भाकलको प्रजाति"),
     AnimalInfo(
-        image: "assets/category_list/anya.jpg",
+        image: "assets/category_list/anya.png",
         name: "अन्य",
         titleName: "अन्य प्रजाति")
   ];

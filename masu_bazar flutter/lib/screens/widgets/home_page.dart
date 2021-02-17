@@ -15,7 +15,6 @@ class _HomePageState extends State<HomePage> {
     HomeNavBarItem(),
     MeatShopNavBarItem(),
     AddNavBarItemButton(),
-    SettingNavBarItem(),
     ProfileNavBarItem(),
   ];
 
