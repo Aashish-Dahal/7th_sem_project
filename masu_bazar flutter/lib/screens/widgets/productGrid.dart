@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'chickenItemModel/meatItemModel.dart';
-import 'productDetail.dart';
+import 'package:masu_bazar/Model/meatCategory.dart';
+import 'package:masu_bazar/screens/details/details.dart';
 
 class ProductGrid extends StatelessWidget {
-  final List<MeatItemModel> pList;
+  final List<MeatCategoryModel> pList;
   const ProductGrid({Key key, this.pList}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -17,9 +15,12 @@ class ProductGrid extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (builder) => ProductDetails(
+                          builder: (builder) => Details(
+                                title: item.name,
                                 image: item.image,
-                                productName: item.name,
+                                description: item.name,
+                                title1: "Product Information",
+                                title2: "User Information",
                               )));
                 },
                 child: Container(

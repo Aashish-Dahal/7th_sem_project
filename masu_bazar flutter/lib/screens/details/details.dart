@@ -1,51 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:masu_bazar/screens/login/login.dart';
 import 'package:masu_bazar/screens/widgets/appbar.dart';
 import 'package:masu_bazar/screens/widgets/colors.dart';
 
-class Details extends StatefulWidget {
-  final title_details;
-  final description_details;
-  final image_details;
-  final name_details;
-  final price_details;
-  final location_details;
-  final weight_details;
-  final date_details;
-  final age_details;
-  final pnumber_details;
-  final snumber_details;
-  final color_details;
-  final daat_details;
+class Details extends StatelessWidget {
+  final title;
+  final description;
+  final image;
+  final name;
+  final price;
+  final location;
+  final weight;
+  final date;
+  final age;
+  final pnumber;
+  final snumber;
+  final color;
+  final daat;
+  final title1;
+  final title2;
 
   Details(
       {Key key,
-      this.title_details,
-      this.description_details,
-      this.image_details,
-      this.name_details,
-      this.price_details,
-      this.location_details,
-      this.weight_details,
-      this.date_details,
-      this.age_details,
-      this.pnumber_details,
-      this.snumber_details,
-      this.color_details,
-      this.daat_details})
+      this.title1,
+      this.title2,
+      this.title,
+      this.description,
+      this.image,
+      this.name,
+      this.price,
+      this.location,
+      this.weight,
+      this.date,
+      this.age,
+      this.pnumber,
+      this.snumber,
+      this.color,
+      this.daat})
       : super(key: key);
-
-  @override
-  _DetailsState createState() => _DetailsState();
-}
-
-class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: white),
-        title: Text(widget.title_details,style: TextStyle(color:white),),
+        title: Text(
+          title,
+          style: TextStyle(color: white),
+        ),
         actions: [
           Search(),
           Padding(padding: EdgeInsets.all(8.0), child: null //Logout(),
@@ -57,30 +57,43 @@ class _DetailsState extends State<Details> {
           Padding(
             padding: EdgeInsets.only(left: 3.0, right: 3.0),
             child: Card(
-              
                 borderOnForeground: true,
                 // elevation: 3.0,
                 clipBehavior: Clip.antiAlias,
-                child: Image(
-                  image: AssetImage(widget.image_details),
-                  alignment: Alignment.topCenter,
-                  width: 300,
-                  height: 250,
-                  fit: BoxFit.contain,
-                )),
+                child: title1 == "Product Information"
+                    ? Image(
+                        image: AssetImage(image),
+                        alignment: Alignment.topCenter,
+                        width: 300,
+                        height: 250,
+                        fit: BoxFit.fill,
+                      )
+                    : Image(
+                        image: AssetImage(image),
+                        alignment: Alignment.topCenter,
+                        width: 300,
+                        height: 250,
+                        fit: BoxFit.contain,
+                      )),
           ),
           Row(
-            
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 padding: EdgeInsets.only(top: 13.0, left: 20.0),
                 height: 50,
                 width: 188,
-                child: Text(
-                  'Weight=' + widget.weight_details.toString() + " kg",
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                ),
+                child: title1 == "Product Information"
+                    ? Text(
+                        "Qunatity: 10kg",
+                        style: TextStyle(
+                            fontSize: 15.0, fontWeight: FontWeight.bold),
+                      )
+                    : Text(
+                        'Weight=' + weight.toString() + " kg",
+                        style: TextStyle(
+                            fontSize: 15.0, fontWeight: FontWeight.bold),
+                      ),
                 margin: EdgeInsets.only(left: 5.0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
@@ -113,7 +126,7 @@ class _DetailsState extends State<Details> {
                 height: 50,
                 width: 160.5,
                 child: Text(
-                  'Rs.' + widget.price_details.toString(),
+                  'Rs.' + price.toString(),
                   style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -138,7 +151,7 @@ class _DetailsState extends State<Details> {
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, top: 8.0),
                   child: Text(
-                    'Description :',
+                    '$title1 :',
                     style:
                         TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                   ),
@@ -149,7 +162,7 @@ class _DetailsState extends State<Details> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: Text(widget.description_details,
+                  child: Text(description,
                       style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 SizedBox(
@@ -177,7 +190,7 @@ class _DetailsState extends State<Details> {
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, top: 8.0),
                   child: Text(
-                    'Seller Information :',
+                    '$title2 :',
                     style:
                         TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                   ),
@@ -188,53 +201,73 @@ class _DetailsState extends State<Details> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: Text(
-                    "Seller Name : " + widget.name_details,
-                    style: TextStyle(fontWeight: FontWeight.w500),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: Text("Address : " + widget.location_details,
-                      style: TextStyle(fontWeight: FontWeight.w500)),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: Text(
-                      "Date : " + widget.date_details.toString().split(" ")[0],
-                      style: TextStyle(fontWeight: FontWeight.w500)),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: Text("Color : " + widget.color_details,
-                      style: TextStyle(fontWeight: FontWeight.w500)),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: widget.daat_details == null
-                      ? Container()
+                  child: title2 == "User Information"
+                      ? Text(
+                          "User Name : Rabin Shrestha ",
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        )
                       : Text(
-                          "Satiyako_Daat : " + widget.daat_details.toString(),
+                          "Seller Name : " + name,
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.0, right: 5.0),
+                  child: title2 == "User Information"
+                      ? Text(
+                          "Email : xhrrabin@gmail.com ",
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        )
+                      : Text("Address : " + location,
                           style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: widget.age_details == null
+                  child: title2 == "User Information"
+                      ? Text(
+                          "Address : Kathmandu ",
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        )
+                      : Text("Date : " + date.toString().split(" ")[0],
+                          style: TextStyle(fontWeight: FontWeight.w500)),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.0, right: 5.0),
+                  child: title2 == "User Information"
+                      ? Text(
+                          "Phone : 9860123115 ",
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        )
+                      : Text("Color : " + color,
+                          style: TextStyle(fontWeight: FontWeight.w500)),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.0, right: 5.0),
+                  child: daat == null
                       ? Container()
-                      : Text("Age : " + widget.age_details.toString(),
+                      : Text("Satiyako_Daat : " + daat.toString(),
                           style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: Text(
-                      "Primary_Number : " + widget.pnumber_details.toString(),
-                      style: TextStyle(fontWeight: FontWeight.w500)),
+                  child: age == null
+                      ? Container()
+                      : Text("Age : " + age.toString(),
+                          style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: Text(
-                      "Secondary_Number : " + widget.snumber_details.toString(),
-                      style: TextStyle(fontWeight: FontWeight.w500)),
+                  child: pnumber == null
+                      ? Container()
+                      : Text("Primary_Number : " + pnumber.toString(),
+                          style: TextStyle(fontWeight: FontWeight.w500)),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.0, right: 5.0),
+                  child: pnumber == null
+                      ? Container()
+                      : Text("Secondary_Number : " + snumber.toString(),
+                          style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 SizedBox(
                   height: 5.0,
@@ -243,7 +276,7 @@ class _DetailsState extends State<Details> {
             ),
           ),
           SizedBox(
-            height: 5,
+            height: 10,
           )
         ],
       ),
