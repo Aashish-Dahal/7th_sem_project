@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/screens/widgets/appbar.dart';
+import 'package:masu_bazar/screens/widgets/cart.dart';
 import 'package:masu_bazar/screens/widgets/colors.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -15,16 +16,50 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
+  int counter = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: white),
-        title: Text("Product Details",style: TextStyle(color:white),),
-        actions: [
-          Search(),
-          Padding(padding: EdgeInsets.all(8.0), child: null //Logout(),
-              ),
+   
+        return Scaffold(
+          appBar:  AppBar(
+            iconTheme: IconThemeData(color: white),
+        title: Text(widget.productName,style: TextStyle(color:white),),
+        actions: <Widget>[
+        
+          new Stack(
+            children: <Widget>[
+              new IconButton(icon: Icon(Icons.shopping_cart_outlined,color: white,), onPressed: () {
+              
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart(productName: widget.productName,quantity: 100,image: widget.image,)),);
+               
+                  //  Cart();
+              
+              }),
+              counter != 0 ? new Positioned(
+                right: 11,
+                top: 11,
+                child: new Container(
+                  padding: EdgeInsets.all(2),
+                  decoration: new BoxDecoration(
+                    color: white,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  constraints: BoxConstraints(
+                    minWidth: 14,
+                    minHeight: 14,
+                  ),
+                  child: Text(
+                    '$counter',
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 8,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ) : new Container()
+            ],
+          ),
         ],
       ),
       body: ListView(
@@ -46,7 +81,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
           Row(
             
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 padding: EdgeInsets.only(top: 13.0, left: 20.0),
@@ -70,28 +105,17 @@ class _ProductDetailsState extends State<ProductDetails> {
                       )
                     ]),
               ),
-              Container(
-                padding: EdgeInsets.only(top: 13.0, left: 45.0),
-                margin: EdgeInsets.only(right: 5.0),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(10.0),
-                        bottomRight: Radius.circular(10.0)),
-                    // border: Border.all(color: Colors.black26),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        offset: Offset(0.0, 0.0),
-                      )
-                    ]),
-                height: 50,
-                width: 160.5,
-                child: Text(
-                  "Add to cart",
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
+              SizedBox(width:35),
+              RaisedButton(
+               color: orange,
+                child: Text('Add to cart',style:TextStyle(color:white)),
+                onPressed: (){
+                  setState(() {
+                    //
+                  });
+                },
                 ),
-              ),
+           
             ],
           ),
 

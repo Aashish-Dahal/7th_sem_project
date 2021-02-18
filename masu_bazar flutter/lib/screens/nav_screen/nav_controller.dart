@@ -11,16 +11,13 @@ class BottomNavItem {
     this.label,
   });
   static List<BottomNavItem> bottomNavBarItem = [
-    BottomNavItem(icon: Icon(Icons.home), color: Colors.red, label: "Home"),
+    BottomNavItem(icon: Icon(Icons.home_outlined), color: Colors.red, label: "Home"),
     BottomNavItem(
-        icon: CircleAvatar(
-          radius: 13.0,
-          backgroundImage: AssetImage('assets/images/logo1.png'),
-        ),
+        icon: Icon(Icons.shopping_bag_outlined),
         label: "Meat Shop"),
     BottomNavItem(
-        icon: Icon(Icons.add_circle), color: Colors.blue, label: "Add"),
+        icon: Icon(Icons.add_circle_outline), color: Colors.blue, label: "Add"),
     
-    BottomNavItem(icon: Icon(Icons.person), label: "Account"),
+    BottomNavItem(icon: Icon(Icons.person_outline), label: "Account"),
   ];
 }

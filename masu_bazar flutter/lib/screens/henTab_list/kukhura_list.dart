@@ -114,7 +114,7 @@ class _ListViewItemState extends State<ListViewItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        setState(() {
+       
           Navigator.push(context, MaterialPageRoute(builder: (context) => Details(
             title_details: widget.list_title_text,
             image_details: widget.list_image,
@@ -130,7 +130,7 @@ class _ListViewItemState extends State<ListViewItem> {
             pnumber_details: widget.list_number,
             snumber_details: widget.list_snumber,
           ),));
-        });
+        
       },
           child: Stack( 
 
