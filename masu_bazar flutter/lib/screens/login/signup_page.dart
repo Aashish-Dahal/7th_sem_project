@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/model/model.dart';
 import 'package:masu_bazar/screens/show_dialog/dialog.dart';
-import 'package:masu_bazar/screens/ui_icons.dart';
 
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key key}) : super(key: key);
@@ -221,11 +220,6 @@ class _SignUpPageState extends State<SignUpPage> {
                                     }
                                   });
                                 },
-<<<<<<< HEAD
-                                elevation: 2.0,
-=======
-                                elevation: 3.0,
->>>>>>> 67793adb40551d2d52ce78e8bacdf0d37e6ec9fb
                                 child: Text(
                                   'Sign Up',
                                   style: TextStyle(
