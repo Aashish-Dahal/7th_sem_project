@@ -16,12 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute:
-<<<<<<< HEAD
-          initScreen == 0 || initScreen == null ? '/IntroScreen' : '/LoginPage',
-=======
-          initScreen == 0 || initScreen == null ? '/IntroScreen' : '/Profile',
           initScreen == 0 || initScreen == null ? '/IntroScreen' : '/HomePage',
->>>>>>> 67793adb40551d2d52ce78e8bacdf0d37e6ec9fb
       onGenerateRoute: RouteGenerator.generateRoute,
       title: 'E-commerce Mobile Application',
       debugShowCheckedModeBanner: false,
