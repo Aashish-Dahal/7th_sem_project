@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/model/model.dart';
 import 'package:masu_bazar/screens/show_dialog/dialog.dart';
+import 'package:masu_bazar/screens/ui_icons.dart';
 
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key key}) : super(key: key);
@@ -75,7 +76,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               style: TextStyle(color: Colors.black),
                               decoration: InputDecoration(
                                 icon: Icon(
-                                  Icons.person,
+                                  Icons.person_outline,
                                   color: Colors.blue[700],
                                   size: 20,
                                 ),
@@ -101,7 +102,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               style: TextStyle(color: Colors.black),
                               decoration: InputDecoration(
                                 icon: Icon(
-                                  Icons.email,
+                                  Icons.email_outlined,
                                   color: Colors.blue[700],
                                   size: 20,
                                 ),
@@ -128,7 +129,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               obscureText: !_passwordVisible,
                               decoration: InputDecoration(
                                 icon: Icon(
-                                  Icons.lock,
+                                  Icons.lock_outline,
                                   color: Colors.blue[700],
                                   size: 20,
                                 ),
@@ -159,8 +160,6 @@ class _SignUpPageState extends State<SignUpPage> {
                             TextFormField(
                               controller: confirmController,
                               validator: (String val) {
-                                if (val.isEmpty)
-                                  return 'Confirm Password is required';
                                 if (val != passwordController.text)
                                   return "password doesn't match";
                                 return null;
@@ -169,7 +168,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               style: TextStyle(color: Colors.black),
                               decoration: InputDecoration(
                                 icon: Icon(
-                                  Icons.lock,
+                                  Icons.lock_outline,
                                   color: Colors.blue[700],
                                   size: 20,
                                 ),
@@ -222,7 +221,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     }
                                   });
                                 },
-                                elevation: 5.0,
+                                elevation: 2.0,
                                 child: Text(
                                   'Sign Up',
                                   style: TextStyle(
@@ -232,6 +231,16 @@ class _SignUpPageState extends State<SignUpPage> {
                                     borderRadius: BorderRadius.circular(25.0)),
                               ),
                             ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            InkWell(
+                              child: Text("I have account? Back to login"),
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/LoginPage');
+                              },
+                            )
                           ],
                         ),
                       ),
