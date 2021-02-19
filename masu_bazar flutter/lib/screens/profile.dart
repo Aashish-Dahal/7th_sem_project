@@ -151,7 +151,7 @@ class _ProfileState extends State<Profile> {
       child: Column(
         children: [
           Image.asset(
-            'assets/images/person.png',
+            'assets/images/person1.png',
             width: 300,
             height: 250,
             fit: BoxFit.contain,
