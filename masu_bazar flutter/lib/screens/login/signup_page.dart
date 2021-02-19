@@ -26,7 +26,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -205,8 +205,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                           password: inputPassword,
                                           confirmPassword:
                                               confirmController.text);
-                                      userDetaailsPost(userModel)
-                                          .then((response) {
+                                      register(userModel).then((response) {
                                         print(response.body);
                                         if (response.statusCode == 201) {
                                           showDialog(

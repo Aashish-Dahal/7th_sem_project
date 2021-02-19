@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/Model/meatCategory.dart';
 import 'package:masu_bazar/screens/widgets/appbar.dart';
+import 'package:masu_bazar/screens/widgets/cart.dart';
 import 'package:masu_bazar/screens/widgets/colors.dart';
 
-class Details extends StatelessWidget {
+class Details extends StatefulWidget {
+  final MeatCategoryModel list;
   final title;
   final description;
   final image;
@@ -35,19 +38,61 @@ class Details extends StatelessWidget {
       this.pnumber,
       this.snumber,
       this.color,
-      this.daat})
+      this.daat,
+      this.list})
       : super(key: key);
+
+  @override
+  _DetailsState createState() => _DetailsState();
+}
+
+class _DetailsState extends State<Details> {
+  List<MeatCategoryModel> _cartList = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: white),
         title: Text(
-          title,
+          widget.title,
           style: TextStyle(color: white),
         ),
         actions: [
           Search(),
+          InkWell(
+            child: Stack(
+              children: [
+                if (_cartList.length > 0)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 1, top: 5, left: 10),
+                    child: CircleAvatar(
+                      radius: 8.0,
+                      backgroundColor: Colors.red,
+                      foregroundColor: Colors.white,
+                      child: Text(
+                        _cartList.length.toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Icon(Icons.shopping_cart_outlined),
+                ),
+              ],
+            ),
+            onTap: () {
+              if (_cartList.isNotEmpty)
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Cart(_cartList),
+                  ),
+                );
+            },
+          ),
           Padding(padding: EdgeInsets.all(8.0), child: null //Logout(),
               ),
         ],
@@ -60,16 +105,16 @@ class Details extends StatelessWidget {
                 borderOnForeground: true,
                 // elevation: 3.0,
                 clipBehavior: Clip.antiAlias,
-                child: title1 == "Product Information"
+                child: widget.title1 == "Product Information"
                     ? Image(
-                        image: AssetImage(image),
+                        image: AssetImage(widget.image),
                         alignment: Alignment.topCenter,
                         width: 300,
                         height: 250,
                         fit: BoxFit.fill,
                       )
                     : Image(
-                        image: AssetImage(image),
+                        image: AssetImage(widget.image),
                         alignment: Alignment.topCenter,
                         width: 300,
                         height: 250,
@@ -83,14 +128,14 @@ class Details extends StatelessWidget {
                 padding: EdgeInsets.only(top: 13.0, left: 20.0),
                 height: 50,
                 width: 188,
-                child: title1 == "Product Information"
+                child: widget.title1 == "Product Information"
                     ? Text(
                         "Qunatity: 10kg",
                         style: TextStyle(
                             fontSize: 15.0, fontWeight: FontWeight.bold),
                       )
                     : Text(
-                        'Weight=' + weight.toString() + " kg",
+                        'Weight=' + widget.weight.toString() + " kg",
                         style: TextStyle(
                             fontSize: 15.0, fontWeight: FontWeight.bold),
                       ),
@@ -109,7 +154,7 @@ class Details extends StatelessWidget {
                     ]),
               ),
               Container(
-                padding: EdgeInsets.only(top: 13.0, left: 45.0),
+                padding: EdgeInsets.only(top: 1.0, left: 5.0),
                 margin: EdgeInsets.only(right: 5.0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
@@ -125,10 +170,30 @@ class Details extends StatelessWidget {
                     ]),
                 height: 50,
                 width: 160.5,
-                child: Text(
-                  'Rs.' + price.toString(),
-                  style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
-                ),
+                child: widget.title1 == "Product Information"
+                    ? IconButton(
+                        alignment: Alignment.topCenter,
+                        color: Colors.red,
+                        icon: Icon(
+                          Icons.add_shopping_cart,
+                          size: 30.0,
+
+                          //color: Colors.red,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            if (!_cartList.contains(widget.list))
+                              _cartList.add(widget.list);
+                            else {
+                              _cartList.remove(widget.list);
+                            }
+                          });
+                        })
+                    : Text(
+                        'Rs.' + widget.price.toString(),
+                        style: TextStyle(
+                            fontSize: 15.0, fontWeight: FontWeight.bold),
+                      ),
               ),
             ],
           ),
@@ -151,7 +216,7 @@ class Details extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, top: 8.0),
                   child: Text(
-                    '$title1 :',
+                    '${widget.title1} :',
                     style:
                         TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                   ),
@@ -162,7 +227,7 @@ class Details extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: Text(description,
+                  child: Text(widget.description,
                       style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 SizedBox(
@@ -190,7 +255,7 @@ class Details extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, top: 8.0),
                   child: Text(
-                    '$title2 :',
+                    '${widget.title2} :',
                     style:
                         TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                   ),
@@ -201,72 +266,72 @@ class Details extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: title2 == "User Information"
+                  child: widget.title2 == "User Information"
                       ? Text(
                           "User Name : Rabin Shrestha ",
                           style: TextStyle(fontWeight: FontWeight.w500),
                         )
                       : Text(
-                          "Seller Name : " + name,
+                          "Seller Name : " + widget.name,
                           style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: title2 == "User Information"
+                  child: widget.title2 == "User Information"
                       ? Text(
                           "Email : xhrrabin@gmail.com ",
                           style: TextStyle(fontWeight: FontWeight.w500),
                         )
-                      : Text("Address : " + location,
+                      : Text("Address : " + widget.location,
                           style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: title2 == "User Information"
+                  child: widget.title2 == "User Information"
                       ? Text(
                           "Address : Kathmandu ",
                           style: TextStyle(fontWeight: FontWeight.w500),
                         )
-                      : Text("Date : " + date.toString().split(" ")[0],
+                      : Text("Date : " + widget.date.toString().split(" ")[0],
                           style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: title2 == "User Information"
+                  child: widget.title2 == "User Information"
                       ? Text(
                           "Phone : 9860123115 ",
                           style: TextStyle(fontWeight: FontWeight.w500),
                         )
-                      : Text("Color : " + color,
+                      : Text("Color : " + widget.color,
                           style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: daat == null
+                  child: widget.daat == null
                       ? Container()
-                      : Text("Satiyako_Daat : " + daat.toString(),
+                      : Text("Satiyako_Daat : " + widget.daat.toString(),
                           style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: age == null
+                  child: widget.age == null
                       ? Container()
-                      : Text("Age : " + age.toString(),
+                      : Text("Age : " + widget.age.toString(),
                           style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: pnumber == null
+                  child: widget.pnumber == null
                       ? Container()
-                      : Text("Primary_Number : " + pnumber.toString(),
+                      : Text("Primary_Number : " + widget.pnumber.toString(),
                           style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),
-                  child: pnumber == null
+                  child: widget.pnumber == null
                       ? Container()
-                      : Text("Secondary_Number : " + snumber.toString(),
+                      : Text("Secondary_Number : " + widget.snumber.toString(),
                           style: TextStyle(fontWeight: FontWeight.w500)),
                 ),
                 SizedBox(
