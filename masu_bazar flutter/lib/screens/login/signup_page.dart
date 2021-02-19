@@ -26,14 +26,14 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.7,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: Colors.blue[700],
+                color: Colors.orange[400],
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(70),
                   bottomRight: Radius.circular(70),
@@ -190,7 +190,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               padding: EdgeInsets.symmetric(horizontal: 15.0),
                               child: MaterialButton(
                                 disabledColor: Colors.blue,
-                                color: Colors.blue[700],
+                                color: Colors.orange[400],
                                 onPressed: () {
                                   setState(() {
                                     if (_formKey.currentState.validate()) {
@@ -205,8 +205,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                           password: inputPassword,
                                           confirmPassword:
                                               confirmController.text);
-                                      userDetaailsPost(userModel)
-                                          .then((response) {
+                                      register(userModel).then((response) {
                                         print(response.body);
                                         if (response.statusCode == 201) {
                                           showDialog(
@@ -223,7 +222,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     }
                                   });
                                 },
-                                elevation: 5.0,
+                                elevation: 3.0,
                                 child: Text(
                                   'Sign Up',
                                   style: TextStyle(

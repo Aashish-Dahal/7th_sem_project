@@ -1,44 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:masu_bazar/screens/nav_screen/nav_controller.dart';
-import 'package:masu_bazar/screens/nav_screen/nav_screen.dart';
+import 'package:masu_bazar/Provider/bnbProvider.dart';
+import 'package:provider/provider.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<BottomNavItem> tabController = BottomNavItem.bottomNavBarItem;
-  int _currentTab = 0;
-  final tabs = [
-    HomeNavBarItem(),
-    MeatShopNavBarItem(),
-    AddNavBarItemButton(),
-    ProfileNavBarItem(),
-  ];
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: tabs[_currentTab],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 10,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentTab,
-        onTap: (index) {
-          setState(() {
-            _currentTab = index;
-          });
-        },
-        items: tabController
-            .map((eachTab) => BottomNavigationBarItem(
-                  icon: eachTab.icon,
-                  label: eachTab.label,
-                  backgroundColor: eachTab.color,
-                ))
-            .toList(),
-      ),
+    return ChangeNotifierProvider(
+      create: (context) => BNBProvider(),
+      child: Consumer<BNBProvider>(builder: (context, value, child) {
+        return Scaffold(
+          body: value.tabs[value.currentIndex],
+          bottomNavigationBar: BottomNavigationBar(
+            selectedFontSize: 10,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: value.currentIndex,
+            onTap: (index) {
+              value.currentIndex = index;
+            },
+            items: value.bars
+                .map((eachTab) => BottomNavigationBarItem(
+                      icon: eachTab.icon,
+                      label: eachTab.label,
+                      backgroundColor: eachTab.color,
+                    ))
+                .toList(),
+          ),
+        );
+      }),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/Model/animal.dart';
-import 'package:masu_bazar/screens/grid_list/grid_list.dart';
 import 'package:masu_bazar/screens/widgets/buff.dart';
 import 'package:masu_bazar/screens/widgets/chicken.dart';
 import 'package:masu_bazar/screens/widgets/deal_day.dart';
