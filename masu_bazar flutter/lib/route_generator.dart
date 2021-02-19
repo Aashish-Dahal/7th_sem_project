@@ -4,6 +4,9 @@ import 'package:masu_bazar/screens/widgets/home_page.dart';
 
 import 'screens/introduction_page/intro_screen.dart';
 import 'screens/login/login_page.dart';
+import 'package:masu_bazar/screens/widgets/home_page.dart';
+
+import 'screens/introduction_page/intro_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
