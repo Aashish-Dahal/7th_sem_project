@@ -34,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
             height: MediaQuery.of(context).size.height * 0.7,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: Colors.blue[700],
+                color: Colors.orange[400],
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(70),
                   bottomRight: Radius.circular(70),
@@ -189,7 +189,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               padding: EdgeInsets.symmetric(horizontal: 15.0),
                               child: MaterialButton(
                                 disabledColor: Colors.blue,
-                                color: Colors.blue[700],
+                                color: Colors.orange[400],
                                 onPressed: () {
                                   setState(() {
                                     if (_formKey.currentState.validate()) {
@@ -221,7 +221,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                     }
                                   });
                                 },
+<<<<<<< HEAD
                                 elevation: 2.0,
+=======
+                                elevation: 3.0,
+>>>>>>> 67793adb40551d2d52ce78e8bacdf0d37e6ec9fb
                                 child: Text(
                                   'Sign Up',
                                   style: TextStyle(

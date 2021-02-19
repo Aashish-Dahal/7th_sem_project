@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
             height: MediaQuery.of(context).size.height * 0.7,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                color: Colors.blue[700],
+                color: Colors.orange[400],
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(70),
                   bottomRight: Radius.circular(70),
@@ -238,8 +238,8 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Image.asset(
             'assets/images/meatmart1.png',
-            width: 200,
-            height: 200,
+            width: 190,
+            height: 190,
           ),
         ],
       ),
