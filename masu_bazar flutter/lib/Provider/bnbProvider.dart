@@ -21,7 +21,7 @@ class BNBProvider with ChangeNotifier {
     HomeNavBarItem(),
     MeatShopNavBarItem(),
     AddNavBarItemButton(),
-    ProfileNavBarItem(),
+    Profile(),
   ];
   List<Widget> get tabs {
     return [..._tabItems];

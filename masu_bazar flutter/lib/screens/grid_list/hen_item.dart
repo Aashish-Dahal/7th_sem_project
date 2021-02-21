@@ -71,7 +71,7 @@ class KukhuraTabList extends StatelessWidget {
                       return Container(
                         margin: EdgeInsets.symmetric(horizontal: 5.0),
                         child: Tab(
-                          iconMargin: EdgeInsets.only(top: 2),
+                          iconMargin: EdgeInsets.only(top: 12),
                           text: eachTab.tabName,
                           icon: eachTab.image,
                         ),

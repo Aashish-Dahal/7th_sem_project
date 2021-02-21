@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/screens/widgets/colors.dart';
+import 'package:masu_bazar/screens/widgets/home_page.dart';
+import 'package:masu_bazar/screens/widgets/myads.dart';
 
 class ProfileNavBarItem extends StatefulWidget {
   ProfileNavBarItem({Key key}) : super(key: key);
 
+
   @override
   _ProfileNavBarItemState createState() => _ProfileNavBarItemState();
 }
+
 
 class _ProfileNavBarItemState extends State<ProfileNavBarItem> {
   @override
@@ -50,18 +54,43 @@ class _ProfileNavBarItemState extends State<ProfileNavBarItem> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       MyCard(
+
+                             onPressed: () {
+                             Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                        },
                           name: 'My Order  ',
                           icon: Icons.arrow_forward_ios_outlined),
+                          
+
                       SizedBox(
                         height: 5,
                       ),
                       MyCard(
+
+                             onPressed: () {
+                             Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyAds()),
+                    );
+                        },
+
                           name: 'My Ads  ',
                           icon: Icons.arrow_forward_ios_outlined),
                       SizedBox(
                         height: 5,
                       ),
                       MyCard(
+
+                        onPressed: () {
+                             Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                        },
+
                           name: 'Edit Profile',
                           icon: Icons.arrow_forward_ios_outlined),
                       SizedBox(
@@ -163,23 +192,27 @@ class _ProfileNavBarItemState extends State<ProfileNavBarItem> {
     );
   }
 
-  Widget MyCard({String name, IconData icon}) {
-    return Card(
-        margin: EdgeInsets.only(left: 25, right: 25),
-        elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: Container(
-            height: 50,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  name,
-                  style: TextStyle(fontSize: 16),
-                ),
-                SizedBox(width: 180),
-                Icon(icon),
-              ],
-            )));
+  Widget MyCard({String name, IconData icon, VoidCallback onPressed}) 
+  {
+    return InkWell(
+      onTap: onPressed,
+          child: Card(
+          margin: EdgeInsets.only(left: 25, right: 25),
+          elevation: 0,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          child: Container(
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    name,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  SizedBox(width: 180),
+                  Icon(icon),
+                ],
+              ))),
+    );
   }
 }
