@@ -8,15 +8,15 @@ import 'package:masu_bazar/screens/widgets/profile1.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ProfileNavBarItem extends StatefulWidget {
+class ProfileNavBarItem1 extends StatefulWidget {
   final title;
 
-  ProfileNavBarItem({Key key, this.title}) : super(key: key);
+  ProfileNavBarItem1({Key key, this.title}) : super(key: key);
   @override
-  _ProfileNavBarItemState createState() => _ProfileNavBarItemState();
+  _ProfileNavBarItem1State createState() => _ProfileNavBarItem1State();
 }
 
-class _ProfileNavBarItemState extends State<ProfileNavBarItem> {
+class _ProfileNavBarItem1State extends State<ProfileNavBarItem1> {
   @override
   void initState() {
     super.initState();

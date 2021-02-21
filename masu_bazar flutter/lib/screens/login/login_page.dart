@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:masu_bazar/screens/login/login.dart';
-import 'package:masu_bazar/screens/widgets/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -80,9 +79,7 @@ class _LoginPageState extends State<LoginPage> {
       sharedPreferences.setString("userID", jsonResponse['id']);
       sharedPreferences.setString("username", jsonResponse['username']);
       sharedPreferences.setString("email", jsonResponse['email']);
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (_) => HomePage()),
-          (Route<dynamic> route) => false);
+      Navigator.of(context).pushReplacementNamed('/HomePage');
     } else {
       setState(() {
         _isloding = true;
@@ -282,22 +279,19 @@ class _LoginPageState extends State<LoginPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Don't have an account?"),
+        Text(
+          "Don't have an account?",
+        ),
         SizedBox(
           width: 5,
         ),
-        GestureDetector(
+        InkWell(
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => SignUpPage(),
-            ));
+            Navigator.of(context).pushReplacementNamed('/SignupPage');
           },
           child: Text(
-            "SignUp",
-            style: TextStyle(
-                decoration: TextDecoration.underline,
-                color: Colors.blue,
-                fontSize: 15),
+            "Register",
+            style: TextStyle(color: Colors.blue, fontSize: 15),
           ),
         )
       ],

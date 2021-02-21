@@ -1,22 +1,18 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:masu_bazar/screens/grid_list/grid_list.dart';
+import 'package:masu_bazar/screens/widgets/colors.dart';
 import 'package:masu_bazar/screens/widgets/home_page.dart';
 import 'package:masu_bazar/screens/widgets/myads.dart';
-import 'widgets/colors.dart';
 
+class ProfileNavBarItem extends StatefulWidget {
+  ProfileNavBarItem({Key key}) : super(key: key);
 
-class Profile extends StatefulWidget {
-  Profile({Key key}) : super(key: key);
 
   @override
-  _ProfileState createState() => _ProfileState();
+  _ProfileNavBarItemState createState() => _ProfileNavBarItemState();
 }
 
-class _ProfileState extends State<Profile> {
-  // final VoidCallback onTap;
 
-  // _ProfileState({this.onTap});
+class _ProfileNavBarItemState extends State<ProfileNavBarItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,6 +54,7 @@ class _ProfileState extends State<Profile> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       MyCard(
+
                              onPressed: () {
                              Navigator.push(
                       context,
@@ -67,28 +64,33 @@ class _ProfileState extends State<Profile> {
                           name: 'My Order  ',
                           icon: Icons.arrow_forward_ios_outlined),
                           
+
                       SizedBox(
                         height: 5,
                       ),
                       MyCard(
+
                              onPressed: () {
                              Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => MyAds()),
                     );
                         },
+
                           name: 'My Ads  ',
                           icon: Icons.arrow_forward_ios_outlined),
                       SizedBox(
                         height: 5,
                       ),
                       MyCard(
+
                         onPressed: () {
                              Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                         },
+
                           name: 'Edit Profile',
                           icon: Icons.arrow_forward_ios_outlined),
                       SizedBox(
@@ -110,11 +112,13 @@ class _ProfileState extends State<Profile> {
         ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           child: Container(
+            // margin: EdgeInsets.only(top: 200),
             height: 150,
             width: MediaQuery.of(context).size.width * 0.87,
             decoration: BoxDecoration(color: Colors.white),
             padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
                   height: 10,
@@ -173,10 +177,8 @@ class _ProfileState extends State<Profile> {
 
   Container headerSection() {
     return Container(
-      height: 350, width: 400,
-      //  color: black,
-      //  margin: EdgeInsets.only(top: 30.0),
-      // padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+      height: 350,
+      width: 400,
       child: Column(
         children: [
           Image.asset(
