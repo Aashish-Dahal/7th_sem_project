@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:masu_bazar/screens/grid_list/grid_list.dart';
+import 'package:masu_bazar/screens/widgets/home_page.dart';
+import 'package:masu_bazar/screens/widgets/myads.dart';
+import 'widgets/colors.dart';
 
-import 'widgets/colors.dart';
-import 'widgets/colors.dart';
-import 'widgets/colors.dart';
-import 'widgets/colors.dart';
 
 class Profile extends StatefulWidget {
   Profile({Key key}) : super(key: key);
@@ -14,61 +14,90 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  // final VoidCallback onTap;
+
+  // _ProfileState({this.onTap});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Profile',
-          style: TextStyle(color: white),
-        ),
-        actions: [
-          Icon(Icons.settings,color: white,),
-          SizedBox(width:13)
-        ]
-      ),
-      body: Stack(
+          elevation: 0,
+          title: Text(
+            'Profile',
+            style: TextStyle(color: white),
+          ),
+          actions: [
+            Icon(
+              Icons.settings,
+              color: white,
+            ),
+            SizedBox(width: 13)
+          ]),
+      body: ListView(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height * 0.5,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                color: Colors.orange[400],
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(70),
-                  bottomRight: Radius.circular(70),
-                )),
+          Stack(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.5,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    color: Colors.orange[400],
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(70),
+                      bottomRight: Radius.circular(70),
+                    )),
+              ),
+              Positioned(top: 10, left: 3, right: 1, child: headerSection()),
+              Positioned(top: 250, left: 3, right: 1, child: textSection()),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                  margin: EdgeInsets.only(top: 420),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MyCard(
+                             onPressed: () {
+                             Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                        },
+                          name: 'My Order  ',
+                          icon: Icons.arrow_forward_ios_outlined),
+                          
+                      SizedBox(
+                        height: 5,
+                      ),
+                      MyCard(
+                             onPressed: () {
+                             Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyAds()),
+                    );
+                        },
+                          name: 'My Ads  ',
+                          icon: Icons.arrow_forward_ios_outlined),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      MyCard(
+                        onPressed: () {
+                             Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                        },
+                          name: 'Edit Profile',
+                          icon: Icons.arrow_forward_ios_outlined),
+                      SizedBox(
+                        height: 5,
+                      )
+                    ],
+                  ))
+            ],
           ),
-          Positioned(top: 10, left: 3, right: 1, child: headerSection()),
-          Align(alignment: Alignment.center, child: textSection()),
-          SizedBox(
-            height: 15,
-          ),
-          Container(
-              margin: EdgeInsets.only(top: 340),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyCard(
-                      name: 'My Order  ',
-                      icon: Icons.arrow_forward_ios_outlined),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  MyCard(
-                      name: 'My Ads  ', icon: Icons.arrow_forward_ios_outlined),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  MyCard(
-                      name: 'Edit Profile',
-                      icon: Icons.arrow_forward_ios_outlined),
-                  SizedBox(
-                    height: 5,
-                  )
-                ],
-              ))
         ],
       ),
     );
@@ -161,23 +190,27 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Widget MyCard({String name, IconData icon}) {
-    return Card(
-        margin: EdgeInsets.only(left: 25, right: 25),
-        elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: Container(
-            height: 50,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  name,
-                  style: TextStyle(fontSize: 16),
-                ),
-                SizedBox(width: 180),
-                Icon(icon),
-              ],
-            )));
+  Widget MyCard({String name, IconData icon, VoidCallback onPressed}) 
+  {
+    return InkWell(
+      onTap: onPressed,
+          child: Card(
+          margin: EdgeInsets.only(left: 25, right: 25),
+          elevation: 0,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          child: Container(
+              height: 50,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    name,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  SizedBox(width: 180),
+                  Icon(icon),
+                ],
+              ))),
+    );
   }
 }

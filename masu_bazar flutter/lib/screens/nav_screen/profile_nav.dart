@@ -4,7 +4,7 @@ import 'package:masu_bazar/screens/login/login.dart';
 import 'package:masu_bazar/screens/nav_screen/nav_screen.dart';
 import 'package:masu_bazar/screens/show_dialog/dialog.dart';
 import 'package:masu_bazar/screens/widgets/appbar.dart';
-import 'package:masu_bazar/screens/widgets/profile.dart';
+import 'package:masu_bazar/screens/widgets/profile1.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -122,7 +122,8 @@ class _ProfileNavBarItemState extends State<ProfileNavBarItem> {
                                     age: response[index].age,
                                     khasiImage: response[index].khasiImage,
                                   ),
-                                ));
+                                )
+                                );
                               },
                               child: Dismissible(
                                 key: ValueKey(response[index].id),

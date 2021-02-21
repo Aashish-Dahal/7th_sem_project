@@ -42,9 +42,10 @@ class AddNavBarItemButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         title: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text("Add",style: TextStyle(color: white),),
+          child: Text(title==null?"Add":'Edit',style: TextStyle(color: white),),
         ),
         actions: [
           Search(),

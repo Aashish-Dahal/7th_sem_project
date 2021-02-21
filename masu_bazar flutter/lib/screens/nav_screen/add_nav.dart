@@ -44,8 +44,10 @@ class FormFields extends StatefulWidget {
 }
 
 class _FormFieldsState extends State<FormFields> {
+  final String image='assets/images/upload.png';
   @override
   void initState() {
+  
     _currentCategorySelected = _catrgory[0];
     titleController.text = widget.title;
     descriptionController.text = widget.shortDescription;
@@ -140,7 +142,7 @@ class _FormFieldsState extends State<FormFields> {
       image: _image != null
           ? FileImage(File(_image.path))
           : AssetImage(
-              'assets/images/upload.png',
+              widget.khasiImage??image
             ),
       width: 300,
       height: 200,
@@ -549,9 +551,9 @@ class _FormFieldsState extends State<FormFields> {
                     )
                   : Center(
                       child: RaisedButton(
-                        color: Color(0xFFEB0EC29E),
+                        color: orange,
                         child: Text(
-                          "Edit",
+                          "Update",
                           style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () {
