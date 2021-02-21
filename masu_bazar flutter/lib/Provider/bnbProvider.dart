@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/Model/bnb.dart';
+import 'package:masu_bazar/screens/profile.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../screens/nav_screen/nav_screen.dart';

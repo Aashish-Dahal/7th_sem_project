@@ -48,6 +48,7 @@ class Details extends StatefulWidget {
 
 class _DetailsState extends State<Details> {
   List<MeatCategoryModel> _cartList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +60,9 @@ class _DetailsState extends State<Details> {
         ),
         actions: [
           Search(),
+          SizedBox(
+            width: 10,
+          ),
           InkWell(
             child: Stack(
               children: [
@@ -85,6 +89,9 @@ class _DetailsState extends State<Details> {
               ],
             ),
             onTap: () {
+              setState(() {
+                print(_cartList.length);
+              });
               if (_cartList.isNotEmpty)
                 Navigator.of(context).push(
                   MaterialPageRoute(

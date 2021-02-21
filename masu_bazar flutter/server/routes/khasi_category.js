@@ -2,10 +2,10 @@ const express=require('express');
 const khasiModel=require('../models/khasi.model');
 const mongoose=require('mongoose');
 const router=express.Router();
-const fs=require('file-system');
 var multer=require('multer');
 var checkAuth=require('../middleware/auth')
-var upload=multer({dest:'public/uploads/'});
+var path=require("path");
+//var upload=multer({dest:'public/uploads/'});
 
 const fileFilter=(req, file, cb)=>{
     if(file.mimetype==='image/jpeg' ||file.mimetype==='image/jpg' || file.mimetype==='image/png'){
@@ -73,7 +73,7 @@ router.get('/get',(req,res,next)=>{
           primary_contact_no:req.body.primary_contact_no,
           secondary_contact_no:req.body.secondary_contact_no,
           age:req.body.age,
-          khasiImage:req.file.originalname
+          khasiImage:req.file.path
           
     }); 
    

@@ -43,7 +43,11 @@ class _CartState extends State<Cart> {
                       ),
                       onTap: () {
                         setState(() {
+                          print(_cart.length);
                           _cart.remove(item);
+                          if (_cart.length == 0) {
+                            Navigator.pop(context);
+                          }
                         });
                       }),
                 ),
