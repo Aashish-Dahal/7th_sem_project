@@ -16,6 +16,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SignUpPage());
       case '/HomePage':
         return MaterialPageRoute(builder: (_) => HomePage());
+        
     }
   }
 }

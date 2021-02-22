@@ -94,8 +94,8 @@ class _LoginPageState extends State<LoginPage> {
       height: 50.0,
       padding: EdgeInsets.symmetric(horizontal: 15.0),
       child: MaterialButton(
-        disabledColor: Colors.blue,
-        color: Colors.blue[700],
+        disabledColor: Colors.orange,
+        color: Colors.orange,
         onPressed: emailController.text == "" || passwordController.text == ""
             ? null
             : () {
@@ -291,7 +291,7 @@ class _LoginPageState extends State<LoginPage> {
           },
           child: Text(
             "Register",
-            style: TextStyle(color: Colors.blue, fontSize: 15),
+            style: TextStyle(color: Colors.orange, fontSize: 15),
           ),
         )
       ],

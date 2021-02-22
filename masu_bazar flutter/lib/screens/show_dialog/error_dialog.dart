@@ -6,7 +6,7 @@ class ErrorDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text('Information'),
-      content: Text('Submit data failed'),
+      content: Text('Registration failed'),
       actions: [
             FlatButton(
           child: Text('Ok'),

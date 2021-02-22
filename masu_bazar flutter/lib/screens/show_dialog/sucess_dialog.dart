@@ -5,8 +5,8 @@ class Dialogs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Information'),
-      content: Text('Data sucessfully submitted'),
+      title: Text('Yor are good to go!'),
+      content: Text('Registration Sucessfull'),
       actions: [
             FlatButton(
           child: Text('Ok'),

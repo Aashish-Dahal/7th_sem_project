@@ -30,9 +30,9 @@ class IntroScreen extends StatelessWidget {
         decoration: pageDecoration,
       ),
       PageViewModel(
-        title: "Your meal is on the way ",
+        title: "Your order is on the way ",
         body:
-            "Your meal is delivered shortly and you will pay by cash on your location",
+            "Your order will be delivered shortly and you will pay by cash on your location",
         image: Center(
           child:
               Image.asset("assets/introduction_image/img2.png", height: 250.0),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/model/model.dart';
 import 'package:masu_bazar/screens/show_dialog/dialog.dart';
+import 'package:masu_bazar/screens/widgets/colors.dart';
 
 class SignUpPage extends StatefulWidget {
   SignUpPage({Key key}) : super(key: key);
@@ -230,14 +231,20 @@ class _SignUpPageState extends State<SignUpPage> {
                               ),
                             ),
                             SizedBox(
-                              height: 5,
+                              height: 10,
                             ),
-                            InkWell(
-                              child: Text("I have account? Back to login"),
-                              onTap: () {
-                                Navigator.of(context)
-                                    .pushReplacementNamed('/LoginPage');
-                              },
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("I have an account?"),
+                                InkWell(
+                                  child: Text(" Back to login",style:TextStyle(color:orange)),
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .pushReplacementNamed('/LoginPage');
+                                  },
+                                ),
+                              ],
                             )
                           ],
                         ),

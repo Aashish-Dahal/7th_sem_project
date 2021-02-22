@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:masu_bazar/screens/widgets/colors.dart';
 import 'package:masu_bazar/screens/widgets/home_page.dart';
 import 'package:masu_bazar/screens/widgets/myads.dart';
+import 'package:masu_bazar/screens/widgets/setting.dart';
 
-class ProfileNavBarItem extends StatefulWidget {
-  ProfileNavBarItem({Key key}) : super(key: key);
+class Profile extends StatefulWidget {
+  Profile({Key key}) : super(key: key);
 
 
   @override
-  _ProfileNavBarItemState createState() => _ProfileNavBarItemState();
+  _ProfileState createState() => _ProfileState();
 }
 
 
-class _ProfileNavBarItemState extends State<ProfileNavBarItem> {
+class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +24,12 @@ class _ProfileNavBarItemState extends State<ProfileNavBarItem> {
             style: TextStyle(color: white),
           ),
           actions: [
-            Icon(
-              Icons.settings,
+            IconButton(
+              icon:Icon(Icons.settings),
               color: white,
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Setting()),);
+              },
             ),
             SizedBox(width: 13)
           ]),
@@ -126,12 +130,12 @@ class _ProfileNavBarItemState extends State<ProfileNavBarItem> {
                 Column(
                   children: [
                     Text(
-                      "Ashish Dahal",
+                      "Anil Pokhrel",
                       style: TextStyle(
                           fontSize: 15.0, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      "ashishdahal490@gmail.com",
+                      "anil123@gmail.com",
                       style: TextStyle(
                         fontSize: 13.0,
                       ),
