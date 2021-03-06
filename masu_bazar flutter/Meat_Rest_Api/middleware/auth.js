@@ -5,9 +5,8 @@ module.exports=(req,res,next)=>{
         var token =req.headers.authorization.split(" ")[1];
        var decoded= jwt.verify(token,config.secret);
        req.userData=decoded;
+       console.log(req.userData);
     
-    //    console.log(decoded);
-    //    console.log(token);
      next();
     } catch (error) {
         res.status(401).json({

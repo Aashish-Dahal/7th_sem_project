@@ -8,9 +8,9 @@ var checkAuth=require('../middleware/auth')
 
 const fileFilter=(req, file, cb)=>{
     if(file.mimetype==='image/jpeg' ||file.mimetype==='image/jpg' || file.mimetype==='image/png'){
-        cb(null,true);
-    }else{
         cb(null,false);
+    }else{
+        cb(null,true);
     }
 
 }
@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
   const upload=multer({storage:storage,limits:{
     fileSize:1024*1024*5
      },
-     fileFilter:fileFilter,
+   //  fileFilter:fileFilter,
 });
 
 
@@ -33,6 +33,7 @@ const storage = multer.diskStorage({
 /*-----Handling Get requests----------*/
 
 router.get('/get',(req,res,next)=>{
+    
     khasiModel.find()
     .select('userId _id title category short_description estimated_weight price  color daat owner_name address primary_contact_no secondary_contact_no age khasiImage date')
     .exec()
@@ -58,8 +59,9 @@ router.get('/get',(req,res,next)=>{
 
     router.post('/post',upload.single('image'),checkAuth,(req,res,next)=>{
    // console.log(req.userData['userid']);
-    
+  
     const khasiLists=new khasiModel({
+        
           _id:new mongoose.Types.ObjectId(),
           userId:req.userData['userid'],
           title:req.body.title,
@@ -121,6 +123,78 @@ router.get('/get',(req,res,next)=>{
 /*--------------end-------------*/
 
 /*-----Handling Get requests through id----------*/
+
+router.get('/singleKhasi',checkAuth,(req,res,next)=>{
+    
+    const id=req.userData['userid'];
+    console.log(id);
+    khasiModel.find({userId:id})
+    .select('title category short_description estimated_weight price color daat owner_name address primary_contact_no secondary_contact_no age khasiImage date') 
+    .exec()
+    .then(doc=>{
+        if(doc)
+        {   
+        res.status(200).send(doc);
+        }else{
+            res.status(404).json({
+                message:"No valid entry found for provided ID!!"
+            })
+        }
+    })
+    .catch(err=>{
+        //500:-Internal Server Error
+        res.status(500).json({
+            error:err,
+        })
+    });
+
+});
+router.get('/khasi',(req,res,next)=>{
+    
+    khasiModel.find({category:'khasi'})
+    .select('title category short_description estimated_weight price color daat owner_name address primary_contact_no secondary_contact_no age khasiImage date') 
+    .exec()
+    .then(doc=>{
+        if(doc)
+        {   
+        res.status(200).send(doc);
+        }else{
+            res.status(404).json({
+                message:"No valid entry found for provided ID!!"
+            })
+        }
+    })
+    .catch(err=>{
+        //500:-Internal Server Error
+        res.status(500).json({
+            error:err,
+        })
+    });
+
+});
+router.get('/boka',(req,res,next)=>{
+    
+    khasiModel.find({category:'Boka'})
+    .select('title category short_description estimated_weight price color daat owner_name address primary_contact_no secondary_contact_no age khasiImage date') 
+    .exec()
+    .then(doc=>{
+        if(doc)
+        {   
+        res.status(200).send(doc);
+        }else{
+            res.status(404).json({
+                message:"No valid entry found for provided ID!!"
+            })
+        }
+    })
+    .catch(err=>{
+        //500:-Internal Server Error
+        res.status(500).json({
+            error:err,
+        })
+    });
+
+});
 
 router.get('/:khasiListId',(req,res,next)=>{
     const id=req.params.khasiListId;

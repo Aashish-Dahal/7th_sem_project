@@ -3,6 +3,7 @@ const khasiSchema=mongoose.Schema({
     _id:mongoose.Schema.Types.ObjectId,
     userId:{
         type:String,
+       required:true
     },
     title:{
         type:String,
