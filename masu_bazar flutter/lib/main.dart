@@ -3,10 +3,10 @@ import 'package:masu_bazar/route_generator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 int initScreen;
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences preferences = await SharedPreferences.getInstance();
-  initScreen = await preferences.getInt('initScreen');
+  initScreen = preferences.getInt('initScreen');
   await preferences.setInt('initScreen', 1);
   runApp(MyApp());
 }
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute:
-          initScreen == 0 || initScreen == null ? '/IntroScreen' : '/HomePage',
+          initScreen == 0 || initScreen == null ? '/IntroScreen' : '/LoginPage',
       onGenerateRoute: RouteGenerator.generateRoute,
       title: 'E-commerce Mobile Application',
       debugShowCheckedModeBanner: false,
