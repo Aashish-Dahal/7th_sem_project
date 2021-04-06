@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:masu_bazar/Model/meatCategory.dart';
+import 'package:masu_bazar/screens/details/related.dart';
 import 'package:masu_bazar/screens/widgets/appbar.dart';
 import 'package:masu_bazar/screens/widgets/cart.dart';
 import 'package:masu_bazar/screens/widgets/colors.dart';
@@ -363,7 +364,8 @@ class _DetailsState extends State<Details> {
           ),
           SizedBox(
             height: 10,
-          )
+          ),
+          RealatedProduct()
         ],
       ),
     );
