@@ -27,14 +27,6 @@ class RealatedProduct extends StatelessWidget {
           margin: EdgeInsets.only(left: 10, right: 10),
           width: MediaQuery.of(context).size.width,
           height: 170,
-          // child: GridView(
-          //     physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
-          //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //       mainAxisSpacing: 8,
-          //       crossAxisSpacing: 0,
-          //       crossAxisCount: 7,
-          //       childAspectRatio: 3 / 4,
-          //     ),
           child: ListView(
               scrollDirection: Axis.horizontal,
               children: [

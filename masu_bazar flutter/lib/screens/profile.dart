@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:masu_bazar/screens/widgets/colors.dart';
 import 'package:masu_bazar/screens/widgets/home_page.dart';
 import 'package:masu_bazar/screens/widgets/myads.dart';
+import 'package:masu_bazar/screens/widgets/otp.dart';
 import 'package:masu_bazar/screens/widgets/setting.dart';
 
 class Profile extends StatefulWidget {
@@ -91,7 +92,7 @@ class _ProfileState extends State<Profile> {
                         onPressed: () {
                              Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(builder: (context) => OtpPage()),
                     );
                         },
 
