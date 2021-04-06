@@ -3,6 +3,7 @@ import 'package:masu_bazar/Model/meatCategory.dart';
 import 'package:masu_bazar/screens/widgets/appbar.dart';
 import 'package:masu_bazar/screens/widgets/cart.dart';
 import 'package:masu_bazar/screens/widgets/colors.dart';
+import 'package:masu_bazar/screens/widgets/map.dart';
 
 class Details extends StatefulWidget {
   final MeatCategoryModel list;
@@ -290,8 +291,21 @@ class _DetailsState extends State<Details> {
                           "Email : xhrrabin@gmail.com ",
                           style: TextStyle(fontWeight: FontWeight.w500),
                         )
-                      : Text("Address : " + widget.location,
-                          style: TextStyle(fontWeight: FontWeight.w500)),
+                      : Row(
+                        children: [
+                          Text("Address : " ,
+
+                          // + widget.location,
+                              style: TextStyle(fontWeight: FontWeight.w500)),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (_)=>GoogleMapScreen()));
+                                },
+                                child: Image.asset('assets/images/map.png',height: 20,)),
+                                SizedBox(width: 5),
+                                Text(widget.location),
+                        ],
+                      ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0, right: 5.0),

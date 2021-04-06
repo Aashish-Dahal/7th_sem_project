@@ -9,6 +9,8 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="MeatMart"
         android:icon="@mipmap/meatmart">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyA8BGJqBcGrOqQHuuMl6gjLlnbLBhOj6Vk"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
